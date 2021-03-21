@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hazmat128/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true hazmat128/docker-react npm run test
